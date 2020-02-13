@@ -11,6 +11,7 @@
 
 void Micro_TwoApplication(void)
 {
+	
 	sei();
 	uint8_t speed=0;
 	uint8_t distance=0;
@@ -29,7 +30,7 @@ void Micro_TwoApplication(void)
 
 	ST_S_SPI_Configuration spistr1=
 	{
-		 spistr1.SLAVE_MODE=SPI_MASTER,
+		 spistr1.SLAVE_MODE=SPI_SLAVE,
 		 spistr1.INT_ENABLE=SPI_INT_OFF,
 		 spistr1.PRESCALAR=SPI_Fosc16,
 		 spistr1.DOUBLE_SPEED=SPI_DOUBLE_SPEED_MODE_OFF,
@@ -43,24 +44,31 @@ void Micro_TwoApplication(void)
 	pushButtonInit(BTN_0);
 	pushButtonInit(BTN_1);
 	while(1)
-	{
+	{			
+
 		if(timer0_compare_match_tickes%4==0)
 		{
-			//speed=SPI_Transceiver(0);
-			speed=SPI_recieveByte();
-			distance+=speed;
+			speed=SPI_Transceiver(0);
+			//speed-=48;
+			//distance+=speed;
 		}
 		if(pushButtonGetStatus(BTN_0))
 		{
 			timer0Init(T0_COMP_MODE,T0_OC0_DIS,T0_PRESCALER_64,0,250,T0_INTERRUPT_CMP);
 			distance=0;
 		}
+	
 		if(pushButtonGetStatus(BTN_1))
 		{
 			//timer_tickes=timer0Read();
 			timer0Stop();
-			UART_sendByte(distance);
+			distance+=48;
+			UART_sendByte(speed);
+						distance=0;
+
 		}
+
+		
 
 	}
 }

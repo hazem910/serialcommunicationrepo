@@ -8,13 +8,12 @@
 
 
 #include "UART_SPI_ApplicationMicro1.h"
-
+volatile uint8_t speed=0;
 void Micro_OneApplication(void)
 {
-	gpioPinDirection(GPIOA,BIT0,OUTPUT); /*for led*/
-	gpioPinWrite(GPIOA,BIT0,LOW);
+	
 
-	uint8_t speed=0;
+	
 
 	UART_Config_Structure uart_initialization_structure;
 	uart_initialization_structure.Char_Size=USART_8_Bit_CHAR;
@@ -25,7 +24,7 @@ void Micro_OneApplication(void)
 	uart_initialization_structure.Receive_Mode=USART_RECIEVE_ENABLE;
 	uart_initialization_structure.Transmit_Mode=USART_TRANSMIT_ENABLE;
 	uart_initialization_structure.Double_Speed_Baud_Rate=BAUD9600;
-	//UART_init(&uart_initialization_structure);
+	UART_init(&uart_initialization_structure);
 
 	ST_S_SPI_Configuration spistr1=
 	{
@@ -42,23 +41,28 @@ void Micro_OneApplication(void)
 
 	pushButtonInit(BTN_0);
 	pushButtonInit(BTN_1);
-	Led_Init(LED_1);
-	//UART_init(&uart_initialization_structure);
-	//speed=UART_recieveByte();
+	UART_init(&uart_initialization_structure);
+	gpioPinDirection(GPIOB,BIT3,OUTPUT);
+	INT2_Init(RISIGING_EDGE);
+	speed=UART_recieveByte();
 	while(1)
 	{
 
 		if(pushButtonGetStatus(BTN_0))
 		{
-			speed++;
-			gpioPinWrite(GPIOA,BIT0,BIT0);
+			speed--;
+			gpioPinWrite(GPIOB,BIT3,BIT3);
 		}
-		if(pushButtonGetStatus(BTN_1))
+	/*	if(pushButtonGetStatus(BTN_1))
 		{
 			speed--;
-			//gpioPinWrite(GPIOA,BIT0,LOW);
-		}
-		//SPI_Transceiver(speed);
-		SPI_sendByte(20);
+			gpioPinWrite(GPIOB,BIT3,LOW);
+			
+		}*/
+		SPI_Transceiver(speed);
+		softwareDelayMs(1000);
 	}
+}
+ISR(INT2_vect){
+	speed--;
 }

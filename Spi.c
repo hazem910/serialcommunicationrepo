@@ -101,7 +101,9 @@ return :data  Received
 uint8_t  SPI_Transceiver(uint8_t Copy_u8Data){
 	gpioPinWrite(SS_PORT,SS_PIN,LOW);
 	SPDR = Copy_u8Data; //send data
+	
 	while(!(SPSR & (1<<SPIF)));
+	
 	//SPSR|=(1<<SPIF);
 	return SPDR ; // Received data
 }

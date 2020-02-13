@@ -53,15 +53,22 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../GPIO.c \
+../interrupt.c \
+../ISRs.c \
+../led.c \
 ../main.c \
+../pushButton.c \
 ../sevensegement.c \
 ../softwaredelay.c \
 ../Spi.c \
 ../spirecivier.c \
 ../spitransmitter.c \
+../timers.c \
 ../UART.c \
 ../UART_Receiver.c \
 ../UART_Sender.c \
+../UART_SPI_ApplicationMicro1.c \
+../UART_SPI_ApplicationMicro2.c \
 ../src/ASF/mega/boards/stk600/rcx_x/init.c
 
 
@@ -73,54 +80,82 @@ ASM_SRCS +=
 
 OBJS +=  \
 GPIO.o \
+interrupt.o \
+ISRs.o \
+led.o \
 main.o \
+pushButton.o \
 sevensegement.o \
 softwaredelay.o \
 Spi.o \
 spirecivier.o \
 spitransmitter.o \
+timers.o \
 UART.o \
 UART_Receiver.o \
 UART_Sender.o \
+UART_SPI_ApplicationMicro1.o \
+UART_SPI_ApplicationMicro2.o \
 src/ASF/mega/boards/stk600/rcx_x/init.o
 
 OBJS_AS_ARGS +=  \
 GPIO.o \
+interrupt.o \
+ISRs.o \
+led.o \
 main.o \
+pushButton.o \
 sevensegement.o \
 softwaredelay.o \
 Spi.o \
 spirecivier.o \
 spitransmitter.o \
+timers.o \
 UART.o \
 UART_Receiver.o \
 UART_Sender.o \
+UART_SPI_ApplicationMicro1.o \
+UART_SPI_ApplicationMicro2.o \
 src/ASF/mega/boards/stk600/rcx_x/init.o
 
 C_DEPS +=  \
 GPIO.d \
+interrupt.d \
+ISRs.d \
+led.d \
 main.d \
+pushButton.d \
 sevensegement.d \
 softwaredelay.d \
 Spi.d \
 spirecivier.d \
 spitransmitter.d \
+timers.d \
 UART.d \
 UART_Receiver.d \
 UART_Sender.d \
+UART_SPI_ApplicationMicro1.d \
+UART_SPI_ApplicationMicro2.d \
 src/ASF/mega/boards/stk600/rcx_x/init.d
 
 C_DEPS_AS_ARGS +=  \
 GPIO.d \
+interrupt.d \
+ISRs.d \
+led.d \
 main.d \
+pushButton.d \
 sevensegement.d \
 softwaredelay.d \
 Spi.d \
 spirecivier.d \
 spitransmitter.d \
+timers.d \
 UART.d \
 UART_Receiver.d \
 UART_Sender.d \
+UART_SPI_ApplicationMicro1.d \
+UART_SPI_ApplicationMicro2.d \
 src/ASF/mega/boards/stk600/rcx_x/init.d
 
 OUTPUT_FILE_PATH +=uarttest.elf
@@ -137,6 +172,20 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

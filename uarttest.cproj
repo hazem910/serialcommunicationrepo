@@ -199,7 +199,37 @@
     <Compile Include="gpio.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ISRs.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ISRs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="led.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="led.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ledConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pushButton.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pushButton.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pushButtonConfig.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="registers.h">
@@ -238,6 +268,12 @@
     <Compile Include="std_types.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="timers.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="timers.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="UART.c">
       <SubType>compile</SubType>
     </Compile>
@@ -257,6 +293,18 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="UART_Sender.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_SPI_ApplicationMicro1.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_SPI_ApplicationMicro1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_SPI_ApplicationMicro2.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_SPI_ApplicationMicro2.h">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\config\conf_board.h">

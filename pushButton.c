@@ -29,7 +29,7 @@ En_buttonStatus_t pushButtonGetStatus(En_buttonId_t en_butotn_id)
 		case BTN_0:
 			if(gpioPinRead(BTN_0_GPIO, BTN_0_BIT))
 			{
-				softwareDelayMs(30);
+				softwareDelayMs(50);
 				/*second check due to switch de-bouncing*/
 				if(gpioPinRead(BTN_0_GPIO, BTN_0_BIT))
 				{

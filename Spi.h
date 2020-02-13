@@ -9,6 +9,7 @@
 #ifndef SPI_H_
 #define SPI_H_
 #include "Spiconfig.h"
+#include "softwareDelay.h"
 
 void SPI_Init(ST_S_SPI_Configuration *spi_Config);
 uint8_t  SPI_Transceiver(uint8_t Copy_u8Data);
