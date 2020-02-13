@@ -1,0 +1,816 @@
+
+uarttest.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003be  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000412  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000412  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000444  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000120  00000000  00000000  00000480  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001401  00000000  00000000  000005a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000974  00000000  00000000  000019a1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000009e1  00000000  00000000  00002315  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000001c4  00000000  00000000  00002cf8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00003d2a  00000000  00000000  00002ebc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000a56  00000000  00000000  00006be6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000c0  00000000  00000000  0000763c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_macro  00001274  00000000  00000000  000076fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	29 c0       	rjmp	.+82     	; 0x54 <__ctors_end>
+   2:	00 00       	nop
+   4:	37 c0       	rjmp	.+110    	; 0x74 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	35 c0       	rjmp	.+106    	; 0x74 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	33 c0       	rjmp	.+102    	; 0x74 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	31 c0       	rjmp	.+98     	; 0x74 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	2f c0       	rjmp	.+94     	; 0x74 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	2d c0       	rjmp	.+90     	; 0x74 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	2b c0       	rjmp	.+86     	; 0x74 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	29 c0       	rjmp	.+82     	; 0x74 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	27 c0       	rjmp	.+78     	; 0x74 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	25 c0       	rjmp	.+74     	; 0x74 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	23 c0       	rjmp	.+70     	; 0x74 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	21 c0       	rjmp	.+66     	; 0x74 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	1f c0       	rjmp	.+62     	; 0x74 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	1d c0       	rjmp	.+58     	; 0x74 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	1b c0       	rjmp	.+54     	; 0x74 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	19 c0       	rjmp	.+50     	; 0x74 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	17 c0       	rjmp	.+46     	; 0x74 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	15 c0       	rjmp	.+42     	; 0x74 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	13 c0       	rjmp	.+38     	; 0x74 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	11 c0       	rjmp	.+34     	; 0x74 <__bad_interrupt>
+	...
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a0 36       	cpi	r26, 0x60	; 96
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	80 d0       	rcall	.+256    	; 0x172 <main>
+  72:	a3 c1       	rjmp	.+838    	; 0x3ba <_exit>
+
+00000074 <__bad_interrupt>:
+  74:	c5 cf       	rjmp	.-118    	; 0x0 <__vectors>
+
+00000076 <gpioPinDirection>:
+	{
+	case 0:
+			PORTA_DATA &= ~(u8_pins);
+			PORTA_DATA |= u8_value;
+
+		break;
+  76:	81 30       	cpi	r24, 0x01	; 1
+  78:	89 f0       	breq	.+34     	; 0x9c <gpioPinDirection+0x26>
+  7a:	28 f0       	brcs	.+10     	; 0x86 <gpioPinDirection+0x10>
+  7c:	82 30       	cpi	r24, 0x02	; 2
+  7e:	c9 f0       	breq	.+50     	; 0xb2 <gpioPinDirection+0x3c>
+  80:	83 30       	cpi	r24, 0x03	; 3
+  82:	11 f1       	breq	.+68     	; 0xc8 <gpioPinDirection+0x52>
+  84:	2c c0       	rjmp	.+88     	; 0xde <gpioPinDirection+0x68>
+
+	case 1:
+  86:	4f 3f       	cpi	r20, 0xFF	; 255
+  88:	21 f4       	brne	.+8      	; 0x92 <gpioPinDirection+0x1c>
+			PORTB_DATA &= ~(u8_pins);
+  8a:	8a b3       	in	r24, 0x1a	; 26
+  8c:	68 2b       	or	r22, r24
+  8e:	6a bb       	out	0x1a, r22	; 26
+  90:	08 95       	ret
+			PORTB_DATA |= u8_value;
+		break;
+  92:	8a b3       	in	r24, 0x1a	; 26
+  94:	60 95       	com	r22
+  96:	68 23       	and	r22, r24
+  98:	6a bb       	out	0x1a, r22	; 26
+  9a:	08 95       	ret
+
+	case 2:
+			PORTC_DATA &= ~(u8_pins);
+  9c:	4f 3f       	cpi	r20, 0xFF	; 255
+  9e:	21 f4       	brne	.+8      	; 0xa8 <gpioPinDirection+0x32>
+			PORTC_DATA |= u8_value;
+  a0:	87 b3       	in	r24, 0x17	; 23
+  a2:	68 2b       	or	r22, r24
+  a4:	67 bb       	out	0x17, r22	; 23
+  a6:	08 95       	ret
+		break;
+
+  a8:	87 b3       	in	r24, 0x17	; 23
+  aa:	60 95       	com	r22
+  ac:	68 23       	and	r22, r24
+  ae:	67 bb       	out	0x17, r22	; 23
+  b0:	08 95       	ret
+	case 3:
+			PORTD_DATA &= ~(u8_pins);
+			PORTD_DATA |= u8_value;
+  b2:	4f 3f       	cpi	r20, 0xFF	; 255
+  b4:	21 f4       	brne	.+8      	; 0xbe <gpioPinDirection+0x48>
+		break;
+  b6:	84 b3       	in	r24, 0x14	; 20
+  b8:	68 2b       	or	r22, r24
+  ba:	64 bb       	out	0x14, r22	; 20
+  bc:	08 95       	ret
+
+	}
+  be:	84 b3       	in	r24, 0x14	; 20
+  c0:	60 95       	com	r22
+  c2:	68 23       	and	r22, r24
+  c4:	64 bb       	out	0x14, r22	; 20
+  c6:	08 95       	ret
+}
+
+void gpioPinToggle(uint8_t u8_port, uint8_t u8_pins)
+  c8:	4f 3f       	cpi	r20, 0xFF	; 255
+  ca:	21 f4       	brne	.+8      	; 0xd4 <gpioPinDirection+0x5e>
+{
+  cc:	81 b3       	in	r24, 0x11	; 17
+  ce:	68 2b       	or	r22, r24
+  d0:	61 bb       	out	0x11, r22	; 17
+  d2:	08 95       	ret
+	switch(u8_port)
+	{
+  d4:	81 b3       	in	r24, 0x11	; 17
+  d6:	60 95       	com	r22
+  d8:	68 23       	and	r22, r24
+  da:	61 bb       	out	0x11, r22	; 17
+  dc:	08 95       	ret
+	case 0:
+			PORTA_DATA ^= u8_pins;
+		break;
+  de:	4f 3f       	cpi	r20, 0xFF	; 255
+  e0:	21 f4       	brne	.+8      	; 0xea <gpioPinDirection+0x74>
+
+  e2:	8a b3       	in	r24, 0x1a	; 26
+  e4:	68 2b       	or	r22, r24
+  e6:	6a bb       	out	0x1a, r22	; 26
+  e8:	08 95       	ret
+	case 1:
+			PORTB_DATA ^= (u8_pins);
+  ea:	8a b3       	in	r24, 0x1a	; 26
+  ec:	60 95       	com	r22
+  ee:	68 23       	and	r22, r24
+  f0:	6a bb       	out	0x1a, r22	; 26
+  f2:	08 95       	ret
+
+000000f4 <gpioPinWrite>:
+		break;
+
+	case 1:
+		data= (PORTB_PIN & u8_pin);
+		break;
+
+  f4:	81 30       	cpi	r24, 0x01	; 1
+  f6:	89 f0       	breq	.+34     	; 0x11a <gpioPinWrite+0x26>
+  f8:	28 f0       	brcs	.+10     	; 0x104 <gpioPinWrite+0x10>
+  fa:	82 30       	cpi	r24, 0x02	; 2
+  fc:	c9 f0       	breq	.+50     	; 0x130 <gpioPinWrite+0x3c>
+  fe:	83 30       	cpi	r24, 0x03	; 3
+ 100:	11 f1       	breq	.+68     	; 0x146 <gpioPinWrite+0x52>
+ 102:	2c c0       	rjmp	.+88     	; 0x15c <gpioPinWrite+0x68>
+	case 2:
+		data= (PORTC_PIN & u8_pin);
+ 104:	4f 3f       	cpi	r20, 0xFF	; 255
+ 106:	21 f4       	brne	.+8      	; 0x110 <gpioPinWrite+0x1c>
+		break;
+ 108:	8b b3       	in	r24, 0x1b	; 27
+ 10a:	68 2b       	or	r22, r24
+ 10c:	6b bb       	out	0x1b, r22	; 27
+ 10e:	08 95       	ret
+	case 3:
+		data= (PORTD_PIN & u8_pin);
+ 110:	8b b3       	in	r24, 0x1b	; 27
+ 112:	60 95       	com	r22
+ 114:	68 23       	and	r22, r24
+ 116:	6b bb       	out	0x1b, r22	; 27
+ 118:	08 95       	ret
+		break;
+	}
+	if(data!=LOW)
+ 11a:	4f 3f       	cpi	r20, 0xFF	; 255
+ 11c:	21 f4       	brne	.+8      	; 0x126 <gpioPinWrite+0x32>
+	{
+ 11e:	88 b3       	in	r24, 0x18	; 24
+ 120:	68 2b       	or	r22, r24
+ 122:	68 bb       	out	0x18, r22	; 24
+ 124:	08 95       	ret
+		data=HIGH;
+	}
+ 126:	88 b3       	in	r24, 0x18	; 24
+ 128:	60 95       	com	r22
+ 12a:	68 23       	and	r22, r24
+ 12c:	68 bb       	out	0x18, r22	; 24
+ 12e:	08 95       	ret
+	return data;
+}
+ 130:	4f 3f       	cpi	r20, 0xFF	; 255
+ 132:	21 f4       	brne	.+8      	; 0x13c <gpioPinWrite+0x48>
+ 134:	85 b3       	in	r24, 0x15	; 21
+ 136:	68 2b       	or	r22, r24
+ 138:	65 bb       	out	0x15, r22	; 21
+ 13a:	08 95       	ret
+ 13c:	85 b3       	in	r24, 0x15	; 21
+ 13e:	60 95       	com	r22
+ 140:	68 23       	and	r22, r24
+ 142:	65 bb       	out	0x15, r22	; 21
+ 144:	08 95       	ret
+ 146:	4f 3f       	cpi	r20, 0xFF	; 255
+ 148:	21 f4       	brne	.+8      	; 0x152 <gpioPinWrite+0x5e>
+ 14a:	82 b3       	in	r24, 0x12	; 18
+ 14c:	68 2b       	or	r22, r24
+ 14e:	62 bb       	out	0x12, r22	; 18
+ 150:	08 95       	ret
+ 152:	82 b3       	in	r24, 0x12	; 18
+ 154:	60 95       	com	r22
+ 156:	68 23       	and	r22, r24
+ 158:	62 bb       	out	0x12, r22	; 18
+ 15a:	08 95       	ret
+ 15c:	4f 3f       	cpi	r20, 0xFF	; 255
+ 15e:	21 f4       	brne	.+8      	; 0x168 <gpioPinWrite+0x74>
+ 160:	8b b3       	in	r24, 0x1b	; 27
+ 162:	68 2b       	or	r22, r24
+ 164:	6b bb       	out	0x1b, r22	; 27
+ 166:	08 95       	ret
+ 168:	8b b3       	in	r24, 0x1b	; 27
+ 16a:	60 95       	com	r22
+ 16c:	68 23       	and	r22, r24
+ 16e:	6b bb       	out	0x1b, r22	; 27
+ 170:	08 95       	ret
+
+00000172 <main>:
+{
+	
+//UART_Sender_func();
+//UART_Receiver_func();
+//spi_transimtter();
+spi_reciver();
+ 172:	e2 d0       	rcall	.+452    	; 0x338 <spi_reciver>
+}
+ 174:	80 e0       	ldi	r24, 0x00	; 0
+ 176:	90 e0       	ldi	r25, 0x00	; 0
+ 178:	08 95       	ret
+
+0000017a <sevenSegInit>:
+ */ 
+#include "sevenSeg.h"
+
+/*implementation of seven segment display */
+void sevenSegInit(En_SevenSegId_t a_segment_id){
+	switch (a_segment_id){
+ 17a:	88 23       	and	r24, r24
+ 17c:	19 f0       	breq	.+6      	; 0x184 <sevenSegInit+0xa>
+ 17e:	81 30       	cpi	r24, 0x01	; 1
+ 180:	51 f0       	breq	.+20     	; 0x196 <sevenSegInit+0x1c>
+ 182:	08 95       	ret
+		case  SEG_0:
+		           gpioPinDirection(SEG_BCD_GPIO,SEG_BCD_BITS,OUTPUT);
+ 184:	4f ef       	ldi	r20, 0xFF	; 255
+ 186:	6f e0       	ldi	r22, 0x0F	; 15
+ 188:	81 e0       	ldi	r24, 0x01	; 1
+ 18a:	75 df       	rcall	.-278    	; 0x76 <gpioPinDirection>
+				   gpioPinDirection(SEG_EN1_GPIO,SEG_EN1_BIT,OUTPUT);
+ 18c:	4f ef       	ldi	r20, 0xFF	; 255
+ 18e:	64 e0       	ldi	r22, 0x04	; 4
+ 190:	83 e0       	ldi	r24, 0x03	; 3
+ 192:	71 cf       	rjmp	.-286    	; 0x76 <gpioPinDirection>
+				   break;
+ 194:	08 95       	ret
+		case  SEG_1:
+		            gpioPinDirection(SEG_BCD_GPIO,SEG_BCD_BITS,OUTPUT);
+ 196:	4f ef       	ldi	r20, 0xFF	; 255
+ 198:	6f e0       	ldi	r22, 0x0F	; 15
+ 19a:	81 e0       	ldi	r24, 0x01	; 1
+ 19c:	6c df       	rcall	.-296    	; 0x76 <gpioPinDirection>
+		            gpioPinDirection(SEG_EN2_GPIO,SEG_EN2_BIT,OUTPUT);
+ 19e:	4f ef       	ldi	r20, 0xFF	; 255
+ 1a0:	68 e0       	ldi	r22, 0x08	; 8
+ 1a2:	83 e0       	ldi	r24, 0x03	; 3
+ 1a4:	68 cf       	rjmp	.-304    	; 0x76 <gpioPinDirection>
+ 1a6:	08 95       	ret
+
+000001a8 <sevenSegEnable>:
+}
+
+/*implementation of seven segment ENABLE*/
+
+void sevenSegEnable(En_SevenSegId_t en_segment_id){
+	switch(en_segment_id){
+ 1a8:	88 23       	and	r24, r24
+ 1aa:	19 f0       	breq	.+6      	; 0x1b2 <sevenSegEnable+0xa>
+ 1ac:	81 30       	cpi	r24, 0x01	; 1
+ 1ae:	31 f0       	breq	.+12     	; 0x1bc <sevenSegEnable+0x14>
+ 1b0:	08 95       	ret
+		case SEG_0:
+		          gpioPinWrite(SEG_EN1_GPIO,SEG_EN1_BIT,HIGH);
+ 1b2:	4f ef       	ldi	r20, 0xFF	; 255
+ 1b4:	64 e0       	ldi	r22, 0x04	; 4
+ 1b6:	83 e0       	ldi	r24, 0x03	; 3
+ 1b8:	9d cf       	rjmp	.-198    	; 0xf4 <gpioPinWrite>
+				  break;
+ 1ba:	08 95       	ret
+		case SEG_1:
+		          gpioPinWrite(SEG_EN2_GPIO,SEG_EN2_BIT,HIGH);
+ 1bc:	4f ef       	ldi	r20, 0xFF	; 255
+ 1be:	68 e0       	ldi	r22, 0x08	; 8
+ 1c0:	83 e0       	ldi	r24, 0x03	; 3
+ 1c2:	98 cf       	rjmp	.-208    	; 0xf4 <gpioPinWrite>
+ 1c4:	08 95       	ret
+
+000001c6 <sevenSegDisable>:
+}
+
+/*implementation of seven segment DISENABLE*/
+
+void sevenSegDisable(En_SevenSegId_t en_segment_id){
+	switch(en_segment_id){
+ 1c6:	88 23       	and	r24, r24
+ 1c8:	19 f0       	breq	.+6      	; 0x1d0 <sevenSegDisable+0xa>
+ 1ca:	81 30       	cpi	r24, 0x01	; 1
+ 1cc:	31 f0       	breq	.+12     	; 0x1da <sevenSegDisable+0x14>
+ 1ce:	08 95       	ret
+		case SEG_0:
+		           gpioPinWrite(SEG_EN1_GPIO,SEG_EN1_BIT,LOW);
+ 1d0:	40 e0       	ldi	r20, 0x00	; 0
+ 1d2:	64 e0       	ldi	r22, 0x04	; 4
+ 1d4:	83 e0       	ldi	r24, 0x03	; 3
+ 1d6:	8e cf       	rjmp	.-228    	; 0xf4 <gpioPinWrite>
+				  
+					break;
+ 1d8:	08 95       	ret
+		case SEG_1:
+			      gpioPinWrite(SEG_EN2_GPIO,SEG_EN2_BIT,LOW);
+ 1da:	40 e0       	ldi	r20, 0x00	; 0
+ 1dc:	68 e0       	ldi	r22, 0x08	; 8
+ 1de:	83 e0       	ldi	r24, 0x03	; 3
+ 1e0:	89 cf       	rjmp	.-238    	; 0xf4 <gpioPinWrite>
+ 1e2:	08 95       	ret
+
+000001e4 <sevenSegWrite>:
+	}
+	
+	
+}
+/*IMPLEMENTATION OF SEVENSEGEMENT WRITE*/
+void sevenSegWrite(En_SevenSegId_t en_segment_id, uint8_t u8_number){
+ 1e4:	cf 93       	push	r28
+ 1e6:	c6 2f       	mov	r28, r22
+	
+	
+	gpioPinWrite(SEG_BCD_GPIO,SEG_BCD_BITS,LOW);
+ 1e8:	40 e0       	ldi	r20, 0x00	; 0
+ 1ea:	6f e0       	ldi	r22, 0x0F	; 15
+ 1ec:	81 e0       	ldi	r24, 0x01	; 1
+ 1ee:	82 df       	rcall	.-252    	; 0xf4 <gpioPinWrite>
+	gpioPinWrite(SEG_BCD_GPIO,u8_number,HIGH);
+ 1f0:	4f ef       	ldi	r20, 0xFF	; 255
+ 1f2:	6c 2f       	mov	r22, r28
+ 1f4:	81 e0       	ldi	r24, 0x01	; 1
+ 1f6:	7e df       	rcall	.-260    	; 0xf4 <gpioPinWrite>
+	
+	
+	
+	
+ 1f8:	cf 91       	pop	r28
+ 1fa:	08 95       	ret
+
+000001fc <softwareDelayMs>:
+
+#include "softwareDelay.h"
+
+/* this is the implementation of software delay function*/
+
+void softwareDelayMs(uint32_t u32_delay_in_ms){
+ 1fc:	ab 01       	movw	r20, r22
+ 1fe:	bc 01       	movw	r22, r24
+	
+	for (uint16_t counter=0;counter<u32_delay_in_ms;counter++){
+ 200:	41 15       	cp	r20, r1
+ 202:	51 05       	cpc	r21, r1
+ 204:	61 05       	cpc	r22, r1
+ 206:	71 05       	cpc	r23, r1
+ 208:	71 f4       	brne	.+28     	; 0x226 <softwareDelayMs+0x2a>
+ 20a:	08 95       	ret
+ 20c:	01 97       	sbiw	r24, 0x01	; 1
+		for(uint16_t internalcounter=0;internalcounter<1000;internalcounter++){
+ 20e:	f1 f7       	brne	.-4      	; 0x20c <softwareDelayMs+0x10>
+
+/* this is the implementation of software delay function*/
+
+void softwareDelayMs(uint32_t u32_delay_in_ms){
+	
+	for (uint16_t counter=0;counter<u32_delay_in_ms;counter++){
+ 210:	2f 5f       	subi	r18, 0xFF	; 255
+ 212:	3f 4f       	sbci	r19, 0xFF	; 255
+ 214:	c9 01       	movw	r24, r18
+ 216:	a0 e0       	ldi	r26, 0x00	; 0
+ 218:	b0 e0       	ldi	r27, 0x00	; 0
+ 21a:	84 17       	cp	r24, r20
+ 21c:	95 07       	cpc	r25, r21
+ 21e:	a6 07       	cpc	r26, r22
+ 220:	b7 07       	cpc	r27, r23
+ 222:	18 f0       	brcs	.+6      	; 0x22a <softwareDelayMs+0x2e>
+ 224:	08 95       	ret
+ 226:	20 e0       	ldi	r18, 0x00	; 0
+ 228:	30 e0       	ldi	r19, 0x00	; 0
+
+#include "softwareDelay.h"
+
+/* this is the implementation of software delay function*/
+
+void softwareDelayMs(uint32_t u32_delay_in_ms){
+ 22a:	88 ee       	ldi	r24, 0xE8	; 232
+ 22c:	93 e0       	ldi	r25, 0x03	; 3
+ 22e:	ee cf       	rjmp	.-36     	; 0x20c <softwareDelayMs+0x10>
+
+00000230 <SPI_Init>:
+params:pointer to config struct 
+return :void 
+*******************************************************************/
+
+
+void SPI_Init(ST_S_SPI_Configuration *spi_Config){
+ 230:	cf 93       	push	r28
+ 232:	df 93       	push	r29
+ 234:	ec 01       	movw	r28, r24
+        /************************interrputs***************************/
+		if(spi_Config->INT_ENABLE==SPI_INT_ON)
+ 236:	8d 81       	ldd	r24, Y+5	; 0x05
+ 238:	80 38       	cpi	r24, 0x80	; 128
+ 23a:	11 f4       	brne	.+4      	; 0x240 <SPI_Init+0x10>
+		SPCR|=SPI_INT_ON;
+ 23c:	6f 9a       	sbi	0x0d, 7	; 13
+ 23e:	04 c0       	rjmp	.+8      	; 0x248 <SPI_Init+0x18>
+		else if(spi_Config->INT_ENABLE==SPI_INT_OFF)
+ 240:	81 11       	cpse	r24, r1
+ 242:	02 c0       	rjmp	.+4      	; 0x248 <SPI_Init+0x18>
+		SPCR|=SPI_INT_OFF;
+ 244:	8d b1       	in	r24, 0x0d	; 13
+ 246:	8d b9       	out	0x0d, r24	; 13
+			
+	/*******************Data Order******************/
+	if (spi_Config->DATA_ORDER == SPI_LSB_FISRT)
+ 248:	8e 81       	ldd	r24, Y+6	; 0x06
+ 24a:	80 32       	cpi	r24, 0x20	; 32
+ 24c:	11 f4       	brne	.+4      	; 0x252 <SPI_Init+0x22>
+	SPCR|=SPI_LSB_FISRT;
+ 24e:	6d 9a       	sbi	0x0d, 5	; 13
+ 250:	04 c0       	rjmp	.+8      	; 0x25a <SPI_Init+0x2a>
+	else if (spi_Config->DATA_ORDER == SPI_MSB_FISRT)
+ 252:	81 11       	cpse	r24, r1
+ 254:	02 c0       	rjmp	.+4      	; 0x25a <SPI_Init+0x2a>
+	SPCR|=SPI_MSB_FISRT;
+ 256:	8d b1       	in	r24, 0x0d	; 13
+ 258:	8d b9       	out	0x0d, r24	; 13
+	/********************Master Slave Select ******************/
+	if (spi_Config->SLAVE_MODE == SPI_MASTER)
+ 25a:	88 81       	ld	r24, Y
+ 25c:	80 31       	cpi	r24, 0x10	; 16
+ 25e:	71 f5       	brne	.+92     	; 0x2bc <SPI_Init+0x8c>
+	{SPCR|=SPI_MASTER;
+ 260:	6c 9a       	sbi	0x0d, 4	; 13
+	/********************SPI pre-scalar in case of master ******************/
+		switch(spi_Config->PRESCALAR){
+ 262:	89 81       	ldd	r24, Y+1	; 0x01
+ 264:	81 30       	cpi	r24, 0x01	; 1
+ 266:	49 f0       	breq	.+18     	; 0x27a <SPI_Init+0x4a>
+ 268:	28 f0       	brcs	.+10     	; 0x274 <SPI_Init+0x44>
+ 26a:	82 30       	cpi	r24, 0x02	; 2
+ 26c:	41 f0       	breq	.+16     	; 0x27e <SPI_Init+0x4e>
+ 26e:	83 30       	cpi	r24, 0x03	; 3
+ 270:	41 f0       	breq	.+16     	; 0x282 <SPI_Init+0x52>
+ 272:	0a c0       	rjmp	.+20     	; 0x288 <SPI_Init+0x58>
+			case SPI_Fosc4:
+			              SPCR|=SPI_Fosc4;
+ 274:	8d b1       	in	r24, 0x0d	; 13
+ 276:	8d b9       	out	0x0d, r24	; 13
+				          break;
+ 278:	07 c0       	rjmp	.+14     	; 0x288 <SPI_Init+0x58>
+			case  SPI_Fosc16:
+			                SPCR|=SPI_Fosc16;
+ 27a:	68 9a       	sbi	0x0d, 0	; 13
+							break;
+ 27c:	05 c0       	rjmp	.+10     	; 0x288 <SPI_Init+0x58>
+			case SPI_Fosc64:
+			                SPCR|=SPI_Fosc64;
+ 27e:	69 9a       	sbi	0x0d, 1	; 13
+							break;
+ 280:	03 c0       	rjmp	.+6      	; 0x288 <SPI_Init+0x58>
+			case SPI_Fosc128:
+			                SPCR|=SPI_Fosc128;
+ 282:	8d b1       	in	r24, 0x0d	; 13
+ 284:	83 60       	ori	r24, 0x03	; 3
+ 286:	8d b9       	out	0x0d, r24	; 13
+			       break;				
+							 								   	   
+		}
+		/********************Double SPI speed if master******************/
+
+		if (spi_Config->DOUBLE_SPEED == SPI_DOUBLE_SPEED_MODE_ON)
+ 288:	8b 81       	ldd	r24, Y+3	; 0x03
+ 28a:	81 30       	cpi	r24, 0x01	; 1
+ 28c:	11 f4       	brne	.+4      	; 0x292 <SPI_Init+0x62>
+		SPSR|=SPI_DOUBLE_SPEED_MODE_ON;
+ 28e:	70 9a       	sbi	0x0e, 0	; 14
+ 290:	04 c0       	rjmp	.+8      	; 0x29a <SPI_Init+0x6a>
+		else if (spi_Config->DOUBLE_SPEED == SPI_DOUBLE_SPEED_MODE_OFF)
+ 292:	81 11       	cpse	r24, r1
+ 294:	02 c0       	rjmp	.+4      	; 0x29a <SPI_Init+0x6a>
+		SPSR|=SPI_DOUBLE_SPEED_MODE_OFF;
+ 296:	8e b1       	in	r24, 0x0e	; 14
+ 298:	8e b9       	out	0x0e, r24	; 14
+		/*********************MASTER_Port****************************/
+		gpioPinDirection(MISO_PORT,MISO_PIN,INPUT);
+ 29a:	40 e0       	ldi	r20, 0x00	; 0
+ 29c:	60 e4       	ldi	r22, 0x40	; 64
+ 29e:	81 e0       	ldi	r24, 0x01	; 1
+ 2a0:	ea de       	rcall	.-556    	; 0x76 <gpioPinDirection>
+		gpioPinDirection(MOSI_PORT,MOSI_PIN,OUTPUT);
+ 2a2:	4f ef       	ldi	r20, 0xFF	; 255
+ 2a4:	60 e2       	ldi	r22, 0x20	; 32
+ 2a6:	81 e0       	ldi	r24, 0x01	; 1
+ 2a8:	e6 de       	rcall	.-564    	; 0x76 <gpioPinDirection>
+		gpioPinDirection(SCK_PORT,SCK_PIN,OUTPUT);
+ 2aa:	4f ef       	ldi	r20, 0xFF	; 255
+ 2ac:	60 e8       	ldi	r22, 0x80	; 128
+ 2ae:	81 e0       	ldi	r24, 0x01	; 1
+ 2b0:	e2 de       	rcall	.-572    	; 0x76 <gpioPinDirection>
+		gpioPinDirection(SS_PORT,SS_PIN,OUTPUT);
+ 2b2:	4f ef       	ldi	r20, 0xFF	; 255
+ 2b4:	60 e1       	ldi	r22, 0x10	; 16
+ 2b6:	81 e0       	ldi	r24, 0x01	; 1
+ 2b8:	de de       	rcall	.-580    	; 0x76 <gpioPinDirection>
+ 2ba:	14 c0       	rjmp	.+40     	; 0x2e4 <SPI_Init+0xb4>
+	}
+	else if (spi_Config->SLAVE_MODE == SPI_SLAVE){
+ 2bc:	81 11       	cpse	r24, r1
+ 2be:	12 c0       	rjmp	.+36     	; 0x2e4 <SPI_Init+0xb4>
+	SPCR|=SPI_SLAVE;
+ 2c0:	8d b1       	in	r24, 0x0d	; 13
+	/*********************Slave_Port****************************/
+	gpioPinDirection(MISO_PORT,MISO_PIN,OUTPUT);
+ 2c2:	8d b9       	out	0x0d, r24	; 13
+ 2c4:	4f ef       	ldi	r20, 0xFF	; 255
+ 2c6:	60 e4       	ldi	r22, 0x40	; 64
+ 2c8:	81 e0       	ldi	r24, 0x01	; 1
+	gpioPinDirection(MOSI_PORT,MOSI_PIN,INPUT);
+ 2ca:	d5 de       	rcall	.-598    	; 0x76 <gpioPinDirection>
+ 2cc:	40 e0       	ldi	r20, 0x00	; 0
+ 2ce:	60 e2       	ldi	r22, 0x20	; 32
+ 2d0:	81 e0       	ldi	r24, 0x01	; 1
+	gpioPinDirection(SCK_PORT,SCK_PIN,INPUT);
+ 2d2:	d1 de       	rcall	.-606    	; 0x76 <gpioPinDirection>
+ 2d4:	40 e0       	ldi	r20, 0x00	; 0
+ 2d6:	60 e8       	ldi	r22, 0x80	; 128
+ 2d8:	81 e0       	ldi	r24, 0x01	; 1
+	gpioPinDirection(SS_PORT,SS_PIN,INPUT);
+ 2da:	cd de       	rcall	.-614    	; 0x76 <gpioPinDirection>
+ 2dc:	40 e0       	ldi	r20, 0x00	; 0
+ 2de:	60 e1       	ldi	r22, 0x10	; 16
+ 2e0:	81 e0       	ldi	r24, 0x01	; 1
+ 2e2:	c9 de       	rcall	.-622    	; 0x76 <gpioPinDirection>
+	
+	}
+	/********************clock ploarity******************/
+	if (spi_Config->SAMPLING_EDGE == SPI_RISING)
+ 2e4:	8c 81       	ldd	r24, Y+4	; 0x04
+ 2e6:	81 11       	cpse	r24, r1
+ 2e8:	03 c0       	rjmp	.+6      	; 0x2f0 <SPI_Init+0xc0>
+	 SPCR|=SPI_RISING;
+ 2ea:	8d b1       	in	r24, 0x0d	; 13
+ 2ec:	8d b9       	out	0x0d, r24	; 13
+ 2ee:	03 c0       	rjmp	.+6      	; 0x2f6 <SPI_Init+0xc6>
+	else if (spi_Config->SAMPLING_EDGE == SPI_FALLING)
+ 2f0:	88 30       	cpi	r24, 0x08	; 8
+ 2f2:	09 f4       	brne	.+2      	; 0x2f6 <SPI_Init+0xc6>
+	 SPCR|=SPI_FALLING;
+ 2f4:	6b 9a       	sbi	0x0d, 3	; 13
+	/*********************Clock_Phase******************/
+	if(spi_Config->clock_phase==leading_EDGE)
+ 2f6:	8f 81       	ldd	r24, Y+7	; 0x07
+ 2f8:	81 11       	cpse	r24, r1
+ 2fa:	03 c0       	rjmp	.+6      	; 0x302 <SPI_Init+0xd2>
+	SPCR|=leading_EDGE;
+ 2fc:	8d b1       	in	r24, 0x0d	; 13
+ 2fe:	8d b9       	out	0x0d, r24	; 13
+ 300:	03 c0       	rjmp	.+6      	; 0x308 <SPI_Init+0xd8>
+	else if(spi_Config->clock_phase==trailing_EDGE)
+ 302:	84 30       	cpi	r24, 0x04	; 4
+ 304:	09 f4       	brne	.+2      	; 0x308 <SPI_Init+0xd8>
+	SPCR|=trailing_EDGE;
+ 306:	6a 9a       	sbi	0x0d, 2	; 13
+	/********************Enable SPI ******************/
+	if (spi_Config->ENABLE == SPI_ENABLE_ON)
+ 308:	8a 81       	ldd	r24, Y+2	; 0x02
+ 30a:	80 34       	cpi	r24, 0x40	; 64
+ 30c:	11 f4       	brne	.+4      	; 0x312 <SPI_Init+0xe2>
+	SPCR|=SPI_ENABLE_ON;
+ 30e:	6e 9a       	sbi	0x0d, 6	; 13
+ 310:	04 c0       	rjmp	.+8      	; 0x31a <SPI_Init+0xea>
+	else if (spi_Config->ENABLE == SPI_ENABLE_OFF)
+ 312:	81 11       	cpse	r24, r1
+ 314:	02 c0       	rjmp	.+4      	; 0x31a <SPI_Init+0xea>
+	SPCR|=SPI_ENABLE_OFF;
+ 316:	8d b1       	in	r24, 0x0d	; 13
+ 318:	8d b9       	out	0x0d, r24	; 13
+	
+}
+ 31a:	df 91       	pop	r29
+ 31c:	cf 91       	pop	r28
+ 31e:	08 95       	ret
+
+00000320 <SPI_Transceiver>:
+params: data wants to transfer
+return :data  Received
+*******************************************************************/
+
+
+uint8_t  SPI_Transceiver(uint8_t Copy_u8Data){
+ 320:	cf 93       	push	r28
+ 322:	c8 2f       	mov	r28, r24
+	gpioPinWrite(SS_PORT,SS_PIN,LOW);
+ 324:	40 e0       	ldi	r20, 0x00	; 0
+ 326:	60 e1       	ldi	r22, 0x10	; 16
+ 328:	81 e0       	ldi	r24, 0x01	; 1
+ 32a:	e4 de       	rcall	.-568    	; 0xf4 <gpioPinWrite>
+	SPDR = Copy_u8Data; //send data
+ 32c:	cf b9       	out	0x0f, r28	; 15
+	while(!(SPSR & (1<<SPIF)));
+ 32e:	77 9b       	sbis	0x0e, 7	; 14
+ 330:	fe cf       	rjmp	.-4      	; 0x32e <SPI_Transceiver+0xe>
+	//SPSR|=(1<<SPIF);
+	return SPDR ; // Received data
+ 332:	8f b1       	in	r24, 0x0f	; 15
+}
+ 334:	cf 91       	pop	r28
+ 336:	08 95       	ret
+
+00000338 <spi_reciver>:
+#include "Spi.h"
+#include "softwareDelay.h"
+#include "sevenSeg.h"
+
+void spi_reciver (void)
+{
+ 338:	cf 93       	push	r28
+ 33a:	df 93       	push	r29
+ 33c:	cd b7       	in	r28, 0x3d	; 61
+ 33e:	de b7       	in	r29, 0x3e	; 62
+ 340:	28 97       	sbiw	r28, 0x08	; 8
+ 342:	0f b6       	in	r0, 0x3f	; 63
+ 344:	f8 94       	cli
+ 346:	de bf       	out	0x3e, r29	; 62
+ 348:	0f be       	out	0x3f, r0	; 63
+ 34a:	cd bf       	out	0x3d, r28	; 61
+	ST_S_SPI_Configuration spistr1={
+		 spistr1.SLAVE_MODE=SPI_SLAVE,
+ 34c:	19 82       	std	Y+1, r1	; 0x01
+		 spistr1.INT_ENABLE=SPI_INT_OFF,
+ 34e:	1e 82       	std	Y+6, r1	; 0x06
+		 spistr1.PRESCALAR=SPI_Fosc16,
+ 350:	81 e0       	ldi	r24, 0x01	; 1
+ 352:	8a 83       	std	Y+2, r24	; 0x02
+		 spistr1.DOUBLE_SPEED=SPI_DOUBLE_SPEED_MODE_OFF,
+ 354:	1c 82       	std	Y+4, r1	; 0x04
+		 spistr1.ENABLE=SPI_ENABLE_ON,
+ 356:	80 e4       	ldi	r24, 0x40	; 64
+ 358:	8b 83       	std	Y+3, r24	; 0x03
+		 spistr1.SAMPLING_EDGE=SPI_RISING,
+ 35a:	1d 82       	std	Y+5, r1	; 0x05
+		 spistr1.DATA_ORDER=SPI_LSB_FISRT,
+ 35c:	80 e2       	ldi	r24, 0x20	; 32
+ 35e:	8f 83       	std	Y+7, r24	; 0x07
+		 spistr1.clock_phase=leading_EDGE
+ 360:	18 86       	std	Y+8, r1	; 0x08
+		 };
+	SPI_Init(&spistr1);
+ 362:	ce 01       	movw	r24, r28
+ 364:	01 96       	adiw	r24, 0x01	; 1
+ 366:	64 df       	rcall	.-312    	; 0x230 <SPI_Init>
+	sevenSegInit(SEG_0);
+ 368:	80 e0       	ldi	r24, 0x00	; 0
+ 36a:	07 df       	rcall	.-498    	; 0x17a <sevenSegInit>
+	sevenSegInit(SEG_1);
+ 36c:	81 e0       	ldi	r24, 0x01	; 1
+ 36e:	05 df       	rcall	.-502    	; 0x17a <sevenSegInit>
+uint8_t data=0;
+ 370:	10 e0       	ldi	r17, 0x00	; 0
+	while(1)
+	{
+	
+		if(SPI_Transceiver(0)==20)
+ 372:	80 e0       	ldi	r24, 0x00	; 0
+ 374:	d5 df       	rcall	.-86     	; 0x320 <SPI_Transceiver>
+ 376:	84 31       	cpi	r24, 0x14	; 20
+ 378:	79 f4       	brne	.+30     	; 0x398 <spi_reciver+0x60>
+		{
+		
+			sevenSegWrite(SEG_0,data);
+ 37a:	61 2f       	mov	r22, r17
+ 37c:	80 e0       	ldi	r24, 0x00	; 0
+ 37e:	32 df       	rcall	.-412    	; 0x1e4 <sevenSegWrite>
+			sevenSegEnable(SEG_0);
+ 380:	80 e0       	ldi	r24, 0x00	; 0
+ 382:	12 df       	rcall	.-476    	; 0x1a8 <sevenSegEnable>
+			data++;
+ 384:	1f 5f       	subi	r17, 0xFF	; 255
+			softwareDelayMs(1000);
+ 386:	68 ee       	ldi	r22, 0xE8	; 232
+ 388:	73 e0       	ldi	r23, 0x03	; 3
+ 38a:	80 e0       	ldi	r24, 0x00	; 0
+ 38c:	90 e0       	ldi	r25, 0x00	; 0
+ 38e:	36 df       	rcall	.-404    	; 0x1fc <softwareDelayMs>
+		
+			if(data==9)
+ 390:	19 30       	cpi	r17, 0x09	; 9
+			{
+				data=0;
+ 392:	79 f7       	brne	.-34     	; 0x372 <spi_reciver+0x3a>
+		}
+
+		else
+		{ 
+
+				sevenSegWrite(SEG_1,data);
+ 394:	10 e0       	ldi	r17, 0x00	; 0
+ 396:	ed cf       	rjmp	.-38     	; 0x372 <spi_reciver+0x3a>
+ 398:	61 2f       	mov	r22, r17
+ 39a:	81 e0       	ldi	r24, 0x01	; 1
+				sevenSegEnable(SEG_1);
+ 39c:	23 df       	rcall	.-442    	; 0x1e4 <sevenSegWrite>
+ 39e:	81 e0       	ldi	r24, 0x01	; 1
+				sevenSegDisable(SEG_0);
+ 3a0:	03 df       	rcall	.-506    	; 0x1a8 <sevenSegEnable>
+ 3a2:	80 e0       	ldi	r24, 0x00	; 0
+ 3a4:	10 df       	rcall	.-480    	; 0x1c6 <sevenSegDisable>
+				data++;
+ 3a6:	1f 5f       	subi	r17, 0xFF	; 255
+				softwareDelayMs(1000);
+ 3a8:	68 ee       	ldi	r22, 0xE8	; 232
+ 3aa:	73 e0       	ldi	r23, 0x03	; 3
+ 3ac:	80 e0       	ldi	r24, 0x00	; 0
+ 3ae:	90 e0       	ldi	r25, 0x00	; 0
+ 3b0:	25 df       	rcall	.-438    	; 0x1fc <softwareDelayMs>
+ 3b2:	19 30       	cpi	r17, 0x09	; 9
+			
+				if(data==9)
+ 3b4:	f1 f6       	brne	.-68     	; 0x372 <spi_reciver+0x3a>
+ 3b6:	10 e0       	ldi	r17, 0x00	; 0
+				{
+					data=0;
+ 3b8:	dc cf       	rjmp	.-72     	; 0x372 <spi_reciver+0x3a>
+
+000003ba <_exit>:
+ 3ba:	f8 94       	cli
+
+000003bc <__stop_program>:
+ 3bc:	ff cf       	rjmp	.-2      	; 0x3bc <__stop_program>
